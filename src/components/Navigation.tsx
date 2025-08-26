@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -53,26 +54,40 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t border-border">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-2 text-sm font-medium tracking-wider transition-colors ${
-                    isActive(link.href)
-                      ? "text-accent"
-                      : "text-foreground hover:text-accent"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden border-t border-border overflow-hidden"
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                {navLinks.map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block px-3 py-2 text-sm font-medium tracking-wider transition-colors ${
+                        isActive(link.href)
+                          ? "text-accent"
+                          : "text-foreground hover:text-accent"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
