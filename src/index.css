@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Luxury Photography Portfolio Design System */
 
 @layer base {
   :root {
+    /* Core luxury palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 8%;
 
+    /* Card backgrounds */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 8%;
 
+    /* Popover styles */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep charcoal for elegance */
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Warm gray */
+    --secondary: 20 5% 95%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones for subtle elements */
+    --muted: 20 5% 97%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Luxury gold */
+    --accent: 42 87% 55%;
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Luxury gold variant for special elements */
+    --luxury-gold: 42 87% 55%;
+    --luxury-gold-dark: 42 87% 45%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Destructive states */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders and inputs */
+    --border: 20 5% 90%;
+    --input: 20 5% 90%;
+    --ring: 42 87% 55%;
+
+    /* Overlays for hero sections */
+    --overlay-dark: 0 0% 0%;
+    --overlay-light: 0 0% 100%;
 
     --radius: 0.5rem;
+
+    /* Premium gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.7), hsl(0 0% 0% / 0.3));
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--luxury-gold)), hsl(42 87% 65%));
+    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.6), hsl(0 0% 0% / 0.2));
+
+    /* Elegant shadows */
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
+    --shadow-elegant: 0 10px 25px -3px hsl(0 0% 0% / 0.1);
+    --shadow-gold: 0 10px 30px -10px hsl(var(--luxury-gold) / 0.3);
+
+    /* Premium animations */
+    --transition-luxury: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: all 0.3s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
